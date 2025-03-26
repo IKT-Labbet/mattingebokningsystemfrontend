@@ -6,8 +6,10 @@ export const Route = createFileRoute("/")({
 
 function App() {
 	return (
-		<div className="text-center">
-			MY NAME IS MATTINGE
+		<div className="text-center flex justify-center items-center h-full">
+			<div className="flex flex-col justify-center">
+				MY NAME IS MATTINGE
+			</div>
 		</div>
 	);
 }
