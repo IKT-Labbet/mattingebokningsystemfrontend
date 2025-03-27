@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
 
 export const Route = createFileRoute("/room/$roomId")({
   component: RouteComponent,
@@ -15,24 +14,19 @@ export const Route = createFileRoute("/room/$roomId")({
 function RouteComponent() {
   const { roomId } = Route.useParams();
   return (
-    <div className="bg-neutral-500 w-[full] h-[100vh}">
-      <div className="w-[full] h-[10vh] bg-green-500 text-center flex justify-evenly items-center ">
-        <img src="${}" alt="NIGG"></img>
+    <div className="w-[full] h-[100vh} flex flex-col">
+      <img
+        className="w-full aspect-16/9 max-h-120 object-cover"
+        src="https://cdn.discordapp.com/attachments/954001456405577788/1354801941011632249/claudio2.jpg?ex=67e69d21&is=67e54ba1&hm=7eee8881ffe05d1fb96b5a00bd9405352cdec580596eae68f48dff91edfa9d84&"
+        alt="hensida"
+      ></img>
+      <div className="w-full h-[64vh] p-10">
+        <div className="flex flex-row">
+          <p className=" text-3xl">Rum nummer: {roomId}</p>
+          <Badge className="flex justify-center  text-2xl ">Badges!</Badge>
+        </div>
+        <h1 className="mt-10">här beskriv!</h1>
       </div>
-      <div className="w-[full] h-[10vh] text-center flex justify-evenly items-center ">
-      <h1 >här skrivs beskrivning av rum</h1>
-      </div>
-      <div className="w-[full] h-[40vh]  text-center flex justify-center items-center">
-        <Accordion type="single" collapsible className=" w-[30vw] border-4 border-black border-1px p-10 rounded-sm">
-          <AccordionItem value="item-1" >
-            <AccordionTrigger>När kan rummet bokas?</AccordionTrigger>
-            <AccordionContent>
-            <CalendarComponent id="calendar" className="border-4 border-black border-1px p-3" />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
-      <Badge className="flex justify-center">{roomId}</Badge>
     </div>
   );
 }
