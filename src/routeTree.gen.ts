@@ -12,7 +12,12 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+<<<<<<< HEAD
 import { Route as RoomRoomIdImport } from './routes/room/$roomId'
+=======
+import { Route as SearchIndexImport } from './routes/search/index'
+import { Route as SearchQueryImport } from './routes/search/$query'
+>>>>>>> main
 
 // Create/Update Routes
 
@@ -22,9 +27,21 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+<<<<<<< HEAD
 const RoomRoomIdRoute = RoomRoomIdImport.update({
   id: '/room/$roomId',
   path: '/room/$roomId',
+=======
+const SearchIndexRoute = SearchIndexImport.update({
+  id: '/search/',
+  path: '/search/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SearchQueryRoute = SearchQueryImport.update({
+  id: '/search/$query',
+  path: '/search/$query',
+>>>>>>> main
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +56,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+<<<<<<< HEAD
     '/room/$roomId': {
       id: '/room/$roomId'
       path: '/room/$roomId'
       fullPath: '/room/$roomId'
       preLoaderRoute: typeof RoomRoomIdImport
+=======
+    '/search/$query': {
+      id: '/search/$query'
+      path: '/search/$query'
+      fullPath: '/search/$query'
+      preLoaderRoute: typeof SearchQueryImport
+      parentRoute: typeof rootRoute
+    }
+    '/search/': {
+      id: '/search/'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchIndexImport
+>>>>>>> main
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +85,69 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+<<<<<<< HEAD
   '/room/$roomId': typeof RoomRoomIdRoute
+=======
+  '/search/$query': typeof SearchQueryRoute
+  '/search': typeof SearchIndexRoute
+>>>>>>> main
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+<<<<<<< HEAD
   '/room/$roomId': typeof RoomRoomIdRoute
+=======
+  '/search/$query': typeof SearchQueryRoute
+  '/search': typeof SearchIndexRoute
+>>>>>>> main
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+<<<<<<< HEAD
   '/room/$roomId': typeof RoomRoomIdRoute
+=======
+  '/search/$query': typeof SearchQueryRoute
+  '/search/': typeof SearchIndexRoute
+>>>>>>> main
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
+<<<<<<< HEAD
   fullPaths: '/' | '/room/$roomId'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/room/$roomId'
   id: '__root__' | '/' | '/room/$roomId'
+=======
+  fullPaths: '/' | '/search/$query' | '/search'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/search/$query' | '/search'
+  id: '__root__' | '/' | '/search/$query' | '/search/'
+>>>>>>> main
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+<<<<<<< HEAD
   RoomRoomIdRoute: typeof RoomRoomIdRoute
+=======
+  SearchQueryRoute: typeof SearchQueryRoute
+  SearchIndexRoute: typeof SearchIndexRoute
+>>>>>>> main
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+<<<<<<< HEAD
   RoomRoomIdRoute: RoomRoomIdRoute,
+=======
+  SearchQueryRoute: SearchQueryRoute,
+  SearchIndexRoute: SearchIndexRoute,
+>>>>>>> main
 }
 
 export const routeTree = rootRoute
@@ -97,14 +161,27 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+<<<<<<< HEAD
         "/room/$roomId"
+=======
+        "/search/$query",
+        "/search/"
+>>>>>>> main
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+<<<<<<< HEAD
     "/room/$roomId": {
       "filePath": "room/$roomId.tsx"
+=======
+    "/search/$query": {
+      "filePath": "search/$query.tsx"
+    },
+    "/search/": {
+      "filePath": "search/index.tsx"
+>>>>>>> main
     }
   }
 }
